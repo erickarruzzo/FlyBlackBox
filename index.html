@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>Fly Black Box</title>
+
+	    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+	    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+	    <link rel="stylesheet" type="text/css" href="css/local.css" />
+	    <link href="http://vjs.zencdn.net/5.10.2/video-js.css" rel="stylesheet">
+
+		<!-- Para suportar IE8 -->
+		<script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+
+		<!-- Gridster -->
+	    <script type="text/javascript" src="js/jquery.gridster.min.js"></script>
+	    <link rel="stylesheet" type="text/css" href="css/jquery.gridster.min.css" />
+		<!--Fim do gridster -->
+
+	    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+	    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+	    <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
+
+	    <style>
+			img
+			{
+				max-width:100%;
+				height:auto;
+			}
+		</style>
+	</head>
+	<body>
+	    <div id="wrapper">
+	        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	            <div class="navbar-header">
+	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+	                    <span class="sr-only"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                </button>
+	                <a class="navbar-brand" href="index.html">Fly Black Box</a>
+	            </div>
+	            <div class="collapse navbar-collapse navbar-ex1-collapse">
+	                <ul id="active" class="nav navbar-nav side-nav">
+	                    <li class="selected"><a href="index.html"><i class="fa fa-bullseye"></i> Home</a></li>
+	                    <li><a href="favoritos\index.html"><i class="fa fa-tasks"></i> Favoritos</a></li>
+	                    <li><a href="blog.html"><i class="fa fa-globe"></i> Downloads</a></li>
+	                    <li><a href="busca/index.html"><i class="fa fa-list-ol"></i> Busca</a></li>
+	                    <li class="dropdown">
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-font"></i> Cadastros</a>
+	                        <ul class="dropdown-menu">
+	                            <li><a href="cadastro/motorista/index.html"><i class="fa fa-user"></i> Motorista</a></li>
+	                            <li><a href="cadastro/carro/index.html"><i class="fa fa-car"></i> Carro</a></li>
+	                            <li><a href="cadastro/area/index.html"><i class="fa fa-map"></i> Área</a></li>
+	                            <li><a href="cadastro/usuario/index.html"><i class="fa fa-user"></i> Usuário</a></li>
+	                            <li class="divider"></li>
+	                        </ul>
+	                    </li>
+	                    <li><a href="relatorio\index.html"><i class="fa fa-font"></i> Relatórios</a></li>
+	                    <li><a href="meu_perfil/index.html"><i class="fa fa-user"></i> Meu Perfil</a></li>
+	                    <li><a href="configuracoes/index.html"><i class="fa fa-gear"></i> Configurações</a></li>
+	                    <li><a href="bootstrap-elements.html"><i class="fa fa-list-ul"></i> Regras</a></li>
+	                    <li><a href="bootstrap-grid.html"><i class="fa fa-table"></i> Dock Station</a></li>
+	                </ul>
+	                <ul class="nav navbar-nav navbar-right navbar-user">
+	                    <li class="dropdown user-dropdown">
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> USERNAME<b class="caret"></b></a>
+	                        <ul class="dropdown-menu">
+	                            <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+	                            <li><a href="#"><i class="fa fa-gear"></i> Configurações</a></li>
+	                            <li class="divider"></li>
+	                            <li><a href="#"><i class="fa fa-power-off"></i> Log Off</a></li>
+	                        </ul>
+	                    </li>
+	                </ul>
+	            </div>
+	        </nav>
+
+	        <div class="gridster">
+	            <ul>
+		            <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+		                <div class="col-lg-8">
+		                    <div class="panel panel-primary">
+		                        <div class="panel-heading">
+		                            <h3 class="panel-title"> Player Video</h3>
+		                        </div>
+		                        <div class="panel-body">
+			                        <div class="object-responsive">
+										<video id="my-video" class="video-js" controls preload="auto" width="635" poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+											<source src="MY_VIDEO.mp4" type='video/mp4'>
+										</video>
+									</div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </li>
+		            <li data-row="1" data-col="3" data-sizex="1" data-sizey="1">
+		                <div class="col-lg-4">
+		                    <div class="panel panel-success">
+		                        <div class="panel-heading">
+		                            <h3 class="panel-title">Player List</h3>
+		                        </div>
+		                        <div class="panel-body">
+							        <div class="bs-example">
+										<div class="list-group">
+											<a href="#" class="list-group-item">
+												<h5 class="list-group-item-heading">VIDEO 1</h5> 
+											</a>
+											<a href="#" class="list-group-item">
+											  <h5 class="list-group-item-heading">VIDEO 2</h5>
+											</a>
+											<a href="#" class="list-group-item">
+											  <h5 class="list-group-item-heading">VIDEO 3</h5>
+											</a>
+											<a href="#" class="list-group-item">
+											  <h5 class="list-group-item-heading">VIDEO 4</h5>
+											</a>
+											<a href="#" class="list-group-item">
+											  <h5 class="list-group-item-heading">VIDEO 5</h5>
+											</a>
+											<a href="#" class="list-group-item">
+											  <h5 class="list-group-item-heading">VIDEO 6</h5>
+											</a>
+											<a href="#" class="list-group-item">
+											  <h5 class="list-group-item-heading">VIDEO 7</h5>
+											</a>
+											<div class="btn-group btn-group-justified" >
+												<a href="#" class="btn btn-default">Upload Files</a>
+												<a href="#" class="btn btn-default">Download File</a>
+											</div>
+										</div>
+									</div>
+		                        </div>
+		                    </div>
+		                </div>
+	                </li>
+
+	            	<li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+		            	<div class="col-lg-4">
+			                <div class="panel panel-info">
+			                    <div class="panel-heading">
+			                        <h3 class="panel-title"> GPS </h3>
+			                    </div>
+			                    <div class="panel-body">
+				                    <div class="object-responsive">
+				                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.2511579259544!2d-43.17745354983176!3d-22.904105284939575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997f5f64a74be9%3A0x342ba81b0a8ac5f7!2sR.+da+Assembl%C3%A9ia%2C+10+-+Centro%2C+Rio+de+Janeiro+-+RJ!5e0!3m2!1spt-BR!2sbr!4v1464791635057" width="460" frameborder="0" style="border:0" allowfullscreen></iframe>
+				                    </div>
+			                    </div>
+			                </div>
+		            	</div>
+	            	</li>
+	            	<li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
+						<div class="col-lg-4">
+		                    <div class="panel panel-primary">
+		                        <div class="panel-heading">
+		                            <h3 class="panel-title"> Second Lens </h3>
+		                        </div>
+		                        <div class="panel-body">
+		                        	<div class="object-responsive">
+				                        <video id="my-video2" class="video-js" controls preload="auto" width=460 poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+											<source src="MY_VIDEO.mp4" type='video/mp4'>
+										</video>
+									</div>
+		                        </div>
+		                    </div>
+		                </div>
+	                </li>
+	                <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+		                <div class="col-lg-4">
+		                    <div class="panel panel-primary">
+		                        <div class="panel-heading">
+		                            <h3 class="panel-title"> First frame </h3>
+		                        </div>
+		                        <div class="panel-body">
+		                        	<div class="object-responsive">
+				                        <img src="images/image1.jpg"/>
+									</div>
+		                        </div>
+		                    </div>
+		                </div>
+	                </li>
+		            <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
+		            	<div class="col-lg-8">
+		                    <div class="panel panel-info">
+		                        <div class="panel-heading">
+		                            <h3 class="panel-title"> G-Sensor</h3>
+		                        </div>
+		                        <div class="panel-body">
+									
+		                        </div>
+		                    </div>
+		                </div>
+		            </li>
+	            </ul>
+	        </div>
+	            
+	    <!-- /#wrapper -->
+
+	    <script src="http://vjs.zencdn.net/5.10.2/video.js"></script>
+
+		<script type="text/javascript">
+			var gridster;
+
+			$(function(){
+
+				gridster = $(".gridster ul").gridster({
+				    widget_base_dimensions: [100, 55],
+				    widget_margins: [5, 5]
+				}).data('gridster');
+
+
+				$('.js-seralize').on('click', function() {
+				    var s = gridster.serialize();
+			        $('#log').val(JSON.stringify(s));
+			    })
+
+			});
+	    </script>
+
+	</body>
+</html>

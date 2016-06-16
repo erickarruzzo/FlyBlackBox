@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório</title>
+
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/local.css" />
+
+    <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>   
+
+      <style>
+
+        div {
+            padding-bottom:20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Fly Black Box</a>
+                </div>
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul id="active" class="nav navbar-nav side-nav">
+                        <li><a href="../index.html"><i class="fa fa-bullseye"></i> Home</a></li>
+                        <li><a href="../favoritos/index.html"><i class="fa fa-tasks"></i> Favoritos</a></li>
+                        <li><a href="../blog.html"><i class="fa fa-globe"></i> Downloads</a></li>
+                        <li><a href="../signup.html"><i class="fa fa-list-ol"></i> Busca</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-font"></i> Cadastros</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../cadastro/motorista/index.html"><i class="fa fa-user"></i> Motorista</a></li>
+                                <li><a href="../cadastro/carro/index.html"><i class="fa fa-car"></i> Carro</a></li>
+                                <li><a href="../cadastro/area/index.html"><i class="fa fa-map"></i> Área</a></li>
+                                <li><a href="../cadastro/usuario/index.html"><i class="fa fa-user"></i> Usuário</a></li>
+                                <li class="divider"></li>
+                            </ul>
+                        </li>
+                        <li class="selected"><a href="index.html"><i class="fa fa-font"></i> Relatórios</a></li>
+                        <li><a href="../meu_perfil/index.html"><i class="fa fa-user"></i> Meu Perfil</a></li>
+                        <li><a href="../configuracoes/index.html"><i class="fa fa-gear"></i> Configurações</a></li>
+                        <li><a href="../regras/index.html"><i class="fa fa-list-ul"></i> Regras</a></li>
+                        <li><a href="../dock_station/index.html"><i class="fa fa-table"></i> Dock Station</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right navbar-user">
+                        <li class="dropdown user-dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> USERNAME<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                                <li><a href="#"><i class="fa fa-gear"></i> Configurações</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#"><i class="fa fa-power-off"></i> Log Off</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+         <hr />
+        <div id="page-wrapper">
+            <div class="page-header">
+                <h1 id="timeline">Relatório de Eventos </h1>
+            </div>
+            <ul class="timeline">
+                <li>
+                    <div class="timeline-badge info"><i class="fa fa-unlock"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="timeline-title">User Logged in</h4>                            
+                            <span><i class="fa fa-clock-o fa-2x"></i>1 hour 20 minutes ago</span>
+                            <hr />
+                        </div>
+                        <div class="timeline-body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quia hic similique incidunt nisi eius cum nemo, architecto omnis. Laboriosam, ea delectus eius eum sint magni nihil laborum blanditiis unde culpa, eaque nulla quo est repudiandae, at nesciunt debitis adipisci optio eveniet architecto, pariatur voluptatem? Distinctio quia blanditiis, odit eos?
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-badge success"><i class="fa fa-search"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="timeline-title">User Content Search</h4>
+                            <span><i class="fa fa-clock-o fa-2x"></i> 57 minutes ago</span>
+                            <hr />
+                        </div>
+                        <div class="timeline-body">
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+                               incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                               quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                               Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-badge danger"><i class="fa fa-shopping-cart"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="timeline-title">Items added to shopping cart</h4>
+                            <span><i class="fa fa-clock-o fa-2x"></i> 37 minutes ago</span>
+                            <hr />
+                        </div>
+                        <div class="timeline-body">
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+                               incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                               quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                               Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                   <div class="timeline-badge info"><i class="fa fa-dollar"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="timeline-title">Payment processed</h4>
+                            <span><i class="fa fa-clock-o fa-2x"></i> 27 minutes ago</span>
+                            <hr />
+                        </div>
+                        <div class="timeline-body">
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+                               incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                               quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                               Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-badge info"><i class="fa fa-share"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="timeline-title">User logged out</h4>
+                            <span><i class="fa fa-clock-o fa-2x"></i> 10 minutes ago</span>
+                            <hr />
+                        </div>
+                        <div class="timeline-body">
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+                               incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                               quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                               Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
