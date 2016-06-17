@@ -1,0 +1,80 @@
+﻿<html>
+<head>
+    <script>
+        var xhr = new XMLHttpRequest();
+
+        function upload(index, items, sessionId) {
+
+            if (items.length <= index) {
+                var doneSpan = document.getElementById("done");
+                doneSpan.style.removeProperty('display');
+                return;
+            }
+
+            var name = items[index].webkitRelativePath;
+            var blobOrFile = items[index];
+
+            var filesUploadedUl = document.getElementById("FilesUploaded");
+            filesUploadedUl.innerHTML = filesUploadedUl.innerHTML + "<li>" + name + "</li>";
+
+
+            xhr.open('POST', '/Videos/Upload/' + sessionId + '/' + encodeURIComponent(name), true);
+            xhr.onload = function (e) { };
+
+            var progressBar = document.querySelector('progress');
+            xhr.upload.onprogress = function (e) {
+                if (e.lengthComputable) {
+                    progressBar.value = (e.loaded / e.total) * 100;
+                    progressBar.textContent = progressBar.value;
+                }
+            };
+            xhr.onreadystatechange = function (e) {
+                if (xhr.readyState !== 4) {
+                    return;
+                }
+                
+                upload(++index, items, sessionId);                
+            }
+
+            xhr.send(blobOrFile);
+        }
+
+        function createUUID() {
+            // http://www.ietf.org/rfc/rfc4122.txt
+            var s = [];
+            var hexDigits = "0123456789abcdef";
+            for (var i = 0; i < 36; i++) {
+                s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+            }
+            s[14] = "4";  // bits 12-15 of the time_hi_and_version field to 0010
+            s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);  // bits 6-7 of the clock_seq_hi_and_reserved to 01
+            s[8] = s[13] = s[18] = s[23] = "-";
+
+            var uuid = s.join("");
+            return uuid;
+        }
+
+
+        function F() {
+            var id = createUUID();
+            var input = document.getElementById("folderInput");
+            upload(0, input.files, id);
+            //for (var i = 0; i < /*input.files.length*/1; i++) {
+            //    var item = input.files[i];
+            //    var filesUploadedUl = document.getElementById("FilesUploaded");
+            //    filesUploadedUl.innerHTML = filesUploadedUl.innerHTML + "<li>" + input.files[i].name + "</li>";
+            //    upload(id, item.webkitRelativePath, item);
+            //}
+        }
+    </script>
+</head>
+<body>
+    <h1>Folder to upload</h1>
+    <input id="folderInput" type="file" directory="" webkitdirectory="" />
+    <button onclick="F()">Send</button>
+    <h2>Progress</h2>
+    <span id="done" style="display:none;color:green">Done</span>
+    <progress min="0" max="100" value="0">0% complete</progress>
+    <ul id="FilesUploaded"></ul>
+</body>
+</html>

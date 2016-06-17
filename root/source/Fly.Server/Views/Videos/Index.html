@@ -1,0 +1,86 @@
+﻿<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+    <script>
+        function changeVideo(name) {
+            var videoContainer = document.getElementById("videocontainer");
+            videoContainer.innerHTML = "";
+
+            var parser = new DOMParser();
+            var video = parser.parseFromString("<video src='/Videos/" + name + "' width='100%' controls></video>", "text/html").body.firstChild;
+
+            fetch('/Videos/route/' + name).then(function (response) {
+                response.json().then(function (geojsonFeature) {
+                    L.geoJson(geojsonFeature).addTo(map);
+                })
+
+
+            });
+
+            var geojson = fetch('/Videos/time/' + name).then(function (response) {
+                response.json().then(function (timepoint) {
+                    video.addEventListener("timeupdate", function () {
+                        var vTime = video.currentTime;
+
+                        for (var i = 0; i < timepoint.Points.length; i++) {
+                            if (timepoint.Points[i].Time > vTime) {
+                                var newLatLng = new L.LatLng(timepoint.Points[i].Latitude, timepoint.Points[i].Longitude);
+                                marker.setLatLng(newLatLng);
+                                map.setView(newLatLng, 17, { zoom: { animate: true } });
+                                break;
+                            }
+                        }
+
+
+                    }, false);
+                });
+            });
+
+            videoContainer.appendChild(video);
+        }
+
+        function ChangeVelocity(vel) {
+            var video = document.getElementsByTagName("video")[0];
+            video.pause();
+            video.playbackRate = vel;
+            video.load();
+        }
+    </script>
+</head>
+<body>
+    <a href="~/Videos/Upload">Upload</a>
+    <div>
+        <div style="float:left">
+            <ul onclick="changeVideo(event.target.id)">
+                @foreach (var item in ViewBag.Videos)
+            {
+                    <li id="@item">@item</li>
+                }
+            </ul>
+        </div>
+        <div id="videocontainer" style="width:400px;display:inline-block">
+
+        </div>
+        <div>
+            <button onclick="ChangeVelocity(0.5); event.preventDefault(); e.stopPropagation();return false;">0.5x</button>
+            <button onclick="ChangeVelocity(2.0); event.preventDefault(); e.stopPropagation();return false;">2x</button>
+            <button onclick="ChangeVelocity(4.0); event.preventDefault(); e.stopPropagation();return false;">4x</button>
+            <button onclick="ChangeVelocity(8.0); event.preventDefault(); e.stopPropagation();return false;">8x</button>
+        </div>
+        <div style="clear:both"></div>
+    </div>
+    <div id="mapcontainer" style="width:300px;height:300px">
+
+    </div>
+    <script>
+        var map = L.map('mapcontainer', { center: [20.0, 5.0], minZoom: 2, zoom: 9 });
+        L.tileLayer('http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright" title="OpenStreetMap" target="_blank">OpenStreetMap</a> contributors | Tiles Courtesy of <a href="http://www.mapquest.com/" title="MapQuest" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" width="16" height="16">',
+            subdomains: ['otile1', 'otile2', 'otile3', 'otile4']
+        }).addTo(map);
+
+        var marker = L.marker([51.5, -0.09]).addTo(map);
+    </script>
+</body>
+</html>
